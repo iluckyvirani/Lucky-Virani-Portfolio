@@ -5,72 +5,113 @@ import img from '../assests/shahina.png'
 import img1 from '../assests/triprider.webp'
 import img3 from '../assests/latrice.png'
 import img4 from '../assests/Prokinesia.png'
+import img5 from '../assests/anpr.png'
+import img6 from '../assests/Synergy-logo.png'
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Shahina Hoja Aesthetics, Skincare & Aesthetic Clinic Website',
-      description: 'Designed and developed a modern, high-performance website for a luxury aesthetics clinic specializing in non-surgical treatments. The platform showcases premium skincare services while providing seamless booking and e-commerce functionality.',
-      technologies: ['React.js', 'Tailwind CSS', 'Stripe API'],
-      features: [
-        'Online appointment booking system',
-        'Secure product checkout with Stripe integration',
-        'Responsive design for all devices',
-        'SEO optimization with code splitting and lazy loading'
-      ],
-      demoUrl: 'https://www.shahinahoja.com/',
-      githubUrl: '#',
-      image: img,
-      category: 'Web Development'
-    },
-    {
-      title: "Latrice - Salon & Professional Service Platform",
-      description: "Built a full-service marketplace connecting beauty professionals with clients. The platform supports both independent stylists and salon businesses with dedicated dashboards, real-time booking, and integrated communication tools.",
-      technologies: ["React.js", "Tailwind CSS"],
-      features: [
-        "Two dashboards: Client and Professional",
-        "Professional accounts with Business and Independent options",
-        "Appointment booking and scheduling system",
-        "Real-time notifications for updates",
-        "Integrated chat functionality for client-professional communication",
-        "User-friendly and responsive interface"
-      ],
-      demoUrl: "https://latrice.vercel.app/",
-      githubUrl: "#",
-      image: img3,
-      category: "Web Development"
-    },
-    {
-      title: 'Prokinesia Healthcare Clinic Website',
-      description: 'Built a responsive SPA for a physiotherapy and wellness clinic with 60+ listed services and booking features.',
-      technologies: ['React.js', 'Tailwind CSS'],
-      features: [
-        'Doctor profile and clinic details',
-        'Comprehensive service listing with descriptions',
-        'Intuitive appointment booking interface',
-        'Responsive and accessible design'
-      ],
-      demoUrl: 'https://prokinesia.com/',
-      githubUrl: '#',
-      image: img4,
-      category: 'Web Development'
-    },
-    {
-      title: 'Admin Dashboard for TripRider App',
-      description: 'Developed an admin dashboard to manage users, bookings, and real-time updates for the TripRider app.',
-      technologies: ['React.js', 'Firebase', 'Google Maps API'],
-      features: [
-        'User management and booking tracking',
-        'Real-time chat functionality using Firebase',
-        'Google Maps API integration for booking location tracking',
-        'Optimized UI/UX for admin efficiency'
-      ],
-      demoUrl: 'https://play.google.com/store/apps/details?id=com.rajiv.tripriderdriver&pcampaignid=web_share',
-      githubUrl: '#',
-      image: img1,
-      category: 'Dashboard'
-    }
-  ];
+const projects = [
+  {
+    title: 'AI-Based ANPR Web Application',
+    description:
+      'Developed a React.js-based dashboard for an AI-powered Automatic Number Plate Recognition (ANPR) system used for real-time vehicle detection, monitoring, and analytics.',
+    technologies: ['React.js', 'REST APIs', 'MUI', 'AI/ML Backend'],
+    features: [
+      'Real-time vehicle and number plate detection logs',
+      'Live analytics and reporting dashboard',
+      'Integration with AI backend APIs',
+      'Optimized UI for large datasets and real-time updates',
+      'Responsive dashboard for monitoring on multiple devices'
+    ],
+    demoUrl: '',
+    githubUrl: '#',
+    image: img5,
+    category: 'AI Application'
+  },
+  {
+    title: 'Company Website – Synergy Telematics Pvt. Ltd.',
+    description:
+      'Designed and enhanced the official company website with a focus on performance, responsiveness, and SEO best practices.',
+    technologies: ['React.js', 'Tailwind CSS', 'Google Analytics'],
+    features: [
+      'Modern and responsive UI/UX',
+      'Reusable and scalable React components',
+      'Google Analytics integration for traffic and user behavior tracking',
+      'SEO-friendly structure and cross-browser compatibility',
+      'Performance optimization for faster page loads'
+    ],
+    demoUrl: 'https://stmpl.in/',
+    githubUrl: '#',
+    image: img6,
+    category: 'Web Development'
+  },
+  {
+    title: 'Shahina Hoja Aesthetics, Skincare & Aesthetic Clinic Website',
+    description:
+      'Designed and developed a modern, high-performance website for a luxury aesthetics clinic specializing in non-surgical treatments.',
+    technologies: ['React.js', 'Tailwind CSS', 'Stripe API'],
+    features: [
+      'Online appointment booking system',
+      'Secure product checkout with Stripe integration',
+      'Responsive design for all devices',
+      'SEO optimization with code splitting and lazy loading'
+    ],
+    demoUrl: 'https://www.shahinahoja.com/',
+    githubUrl: '#',
+    image: img,
+    category: 'Web Development'
+  },
+  {
+    title: 'Latrice - Salon & Professional Service Platform',
+    description:
+      'Built a full-service marketplace connecting beauty professionals with clients through real-time booking and communication tools.',
+    technologies: ['React.js', 'Tailwind CSS'],
+    features: [
+      'Separate dashboards for clients and professionals',
+      'Business and independent professional account types',
+      'Appointment booking and scheduling system',
+      'Real-time notifications and chat functionality',
+      'Fully responsive and user-friendly interface'
+    ],
+    demoUrl: 'https://latrice.vercel.app/',
+    githubUrl: '#',
+    image: img3,
+    category: 'Web Development'
+  },
+  {
+    title: 'Prokinesia Healthcare Clinic Website',
+    description:
+      'Built a responsive SPA for a physiotherapy and wellness clinic featuring 60+ services and an intuitive booking system.',
+    technologies: ['React.js', 'Tailwind CSS'],
+    features: [
+      'Doctor profile and clinic information pages',
+      'Comprehensive service listings',
+      'User-friendly appointment booking interface',
+      'Accessible and responsive design'
+    ],
+    demoUrl: 'https://prokinesia.com/',
+    githubUrl: '#',
+    image: img4,
+    category: 'Web Development'
+  },
+  {
+    title: 'Admin Dashboard for TripRider App',
+    description:
+      'Developed an admin dashboard to manage users, bookings, and real-time operations for the TripRider application.',
+    technologies: ['React.js', 'Firebase', 'Google Maps API'],
+    features: [
+      'User management and booking tracking',
+      'Real-time chat using Firebase',
+      'Live booking location tracking with Google Maps',
+      'Optimized UI/UX for admin productivity'
+    ],
+    demoUrl:
+      'https://play.google.com/store/apps/details?id=com.rajiv.tripriderdriver&pcampaignid=web_share',
+    githubUrl: '#',
+    image: img1,
+    category: 'Dashboard'
+  }
+];
+
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -142,15 +183,22 @@ const Projects = () => {
                 </div>
 
                 <div className="mt-auto pt-4">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg hover:shadow-lg transition-all duration-200 w-full transform hover:scale-[1.02]"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Live Demo</span>
-                  </a>
+       <a
+  href={project.demoUrl || '#'}
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg w-full transition-all duration-200
+    ${
+      project.demoUrl && project.demoUrl !== '#'
+        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg transform hover:scale-[1.02]'
+        : 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
+    }`}
+>
+  <ExternalLink size={16} />
+  <span>Live Demo</span>
+</a>
+
+
                 </div>
               </div>
             </div>

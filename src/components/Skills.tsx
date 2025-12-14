@@ -5,56 +5,57 @@ import GitHubContributions from './GitHubContributions';
 
 const Skills = () => {
   const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: Globe,
-      color: 'from-blue-500 to-cyan-500',
-      skills: [
-        { name: 'React.js', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'HTML/CSS', level: 90 },
-        { name: 'Tailwind CSS', level: 85 },
-        { name: 'Redux', level: 80 },
-        { name: 'TypeScript', level: 75 }
-      ]
-    },
-    {
-      title: 'Backend',
-      icon: Database,
-      color: 'from-green-500 to-emerald-500',
-      skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express.js', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'RESTful APIs', level: 85 },
-        { name: 'JWT Authentication', level: 70 }
-      ]
-    },
-    {
-      title: 'Tools & Technologies',
-      icon: Wrench,
-      color: 'from-purple-500 to-pink-500',
-      skills: [
-        { name: 'Git/GitHub', level: 85 },
-        { name: 'VS Code', level: 90 },
-        { name: 'Postman', level: 80 },
-        { name: 'npm/yarn', level: 85 },
-        { name: 'Webpack', level: 70 }
-      ]
-    },
-    {
-      title: 'Cloud & Others',
-      icon: Code,
-      color: 'from-orange-500 to-red-500',
-      skills: [
-        { name: 'Vercel', level: 75 },
-        { name: 'Netlify', level: 75 },
-        { name: 'Firebase', level: 70 },
-        { name: 'SEO Optimization', level: 75 },
-        { name: 'Responsive Design', level: 90 }
-      ]
-    }
-  ];
+  {
+    title: 'Frontend',
+    icon: Globe,
+    color: 'from-blue-500 to-cyan-500',
+    skills: [
+      { name: 'React.js', level: 90 },
+      { name: 'JavaScript (ES6+)', level: 88 },
+      { name: 'HTML5 / CSS3', level: 90 },
+      { name: 'Tailwind CSS', level: 85 },
+      { name: 'Redux / Redux Toolkit', level: 82 },
+      { name: 'TypeScript', level: 75 }
+    ]
+  },
+  {
+    title: 'Backend & APIs',
+    icon: Database,
+    color: 'from-green-500 to-emerald-500',
+    skills: [
+      { name: 'Node.js', level: 80 },
+      { name: 'Express.js', level: 78 },
+      { name: 'REST APIs Integration', level: 85 },
+      { name: 'MongoDB', level: 75 },
+      { name: 'Authentication (JWT)', level: 70 }
+    ]
+  },
+  {
+    title: 'Tools & Workflow',
+    icon: Wrench,
+    color: 'from-purple-500 to-pink-500',
+    skills: [
+      { name: 'Git & GitHub', level: 88 },
+      { name: 'VS Code', level: 90 },
+      { name: 'Postman', level: 85 },
+      { name: 'npm / yarn', level: 85 },
+      { name: 'Webpack / Vite', level: 75 }
+    ]
+  },
+  {
+    title: 'Cloud, Analytics & UI',
+    icon: Code,
+    color: 'from-orange-500 to-red-500',
+    skills: [
+      { name: 'AWS Amplify & S3', level: 70 },
+      { name: 'Firebase', level: 70 },
+      { name: 'Vercel / Netlify', level: 80 },
+      { name: 'Google Analytics', level: 70 },
+      { name: 'Responsive UI & Performance Optimization', level: 90 }
+    ]
+  }
+];
+
 
   return (
     <section id="skills" className="py-20 bg-white">

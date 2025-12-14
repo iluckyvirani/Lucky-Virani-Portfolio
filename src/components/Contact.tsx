@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle, Loader2  } from 'lucide-react';
-import emailjs from "emailjs-com";
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,43 +9,15 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+    const [state, handleSubmit] = useForm("xqarjpqr");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true); // Set loading to true when submitting
-
-    emailjs
-      .send(
-        "service_fsbb5ie",
-        "template_cm81j9n",
-        formData,
-        "5WHK_Y6KUWL8kIL9t"
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          setIsSubmitted(true);
-          setIsLoading(false); // Set loading to false after success
-          setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({ name: "", email: "", subject: "", message: "" });
-          }, 3000);
-        },
-        (error) => {
-          console.error("Email sending failed:", error.text);
-          setIsLoading(false); // Set loading to false on error
-        }
-      );
-  };
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+};
 
   const contactInfo = [
     {
@@ -161,14 +133,14 @@ const Contact = () => {
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Message</h3>
 
-            {isSubmitted ? (
+            {state.succeeded ? (
               <div className="text-center py-12">
                 <CheckCircle className="text-green-600 mx-auto mb-4" size={48} />
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h4>
                 <p className="text-gray-600">Thank you for reaching out. I'll get back to you soon.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form   onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -178,12 +150,17 @@ const Contact = () => {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
+                      // value={formData.name}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200"
                       placeholder="Your name"
                     />
+                     <ValidationError 
+        prefix="name" 
+        field="name"
+        errors={state.errors}
+      />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -193,12 +170,17 @@ const Contact = () => {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
+                      // value={formData.email}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200"
                       placeholder="your.email@example.com"
                     />
+                     <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
                   </div>
                 </div>
 
@@ -210,12 +192,14 @@ const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    value={formData.subject}
+                    // value={formData.subject}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200"
                     placeholder="What's this about?"
                   />
+                                  <ValidationError prefix="subject" field="subject" errors={state.errors} />
+
                 </div>
 
                 <div>
@@ -225,33 +209,42 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
+                    // value={formData.message}
                     onChange={handleChange}
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200 resize-none"
                     placeholder="Tell me about your project..."
                   ></textarea>
+                   <ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isLoading} // Disable button when loading
-                  className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 transform hover:scale-105 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
-                    }`}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="animate-spin" size={20} />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </button>
+              <button
+  type="submit"
+  disabled={state.submitting}
+  className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg
+    hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2
+    transform hover:scale-105 ${
+      state.submitting ? 'opacity-75 cursor-not-allowed' : ''
+    }`}
+>
+  {state.submitting ? (
+    <>
+      <Loader2 className="animate-spin" size={20} />
+      <span>Sending...</span>
+    </>
+  ) : (
+    <>
+      <Send size={20} />
+      <span>Send Message</span>
+    </>
+  )}
+</button>
+
               </form>
             )}
           </div>

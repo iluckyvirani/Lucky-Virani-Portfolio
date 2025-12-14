@@ -5,23 +5,27 @@ const About = () => {
   const highlights = [
     {
       icon: Code,
-      title: 'Technical Excellence',
-      description: 'Proficient in modern React.js ecosystem with Redux, achieving a 35% performance boost in web applications.'
-    },
-    {
-      icon: Users,
-      title: 'Team Collaboration',
-      description: 'Experience working with cross-functional teams and translating complex designs into user-friendly interfaces.'
+      title: 'React.js Expertise',
+      description:
+        'Strong experience building scalable and high-performance React.js applications with clean, maintainable code.'
     },
     {
       icon: Lightbulb,
-      title: 'Problem Solving',
-      description: 'Strong analytical skills with a focus on building scalable, responsive web applications.'
+      title: 'AI & Dashboard Development',
+      description:
+        'Hands-on experience developing AI-driven dashboards, including ANPR systems with real-time data visualization.'
+    },
+    {
+      icon: Users,
+      title: 'Cross-Team Collaboration',
+      description:
+        'Worked closely with backend, AI, and UI/UX teams to deliver seamless and user-focused digital solutions.'
     },
     {
       icon: Target,
-      title: 'Results Driven',
-      description: 'Dedicated to delivering high-quality solutions that enhance user experience and drive business success.'
+      title: 'Impact-Oriented',
+      description:
+        'Focused on performance optimization, usability, and delivering solutions that create real business value.'
     }
   ];
 
@@ -36,12 +40,15 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              I'm a passionate React.js developer with a strong foundation in modern web development technologies.
-              My journey in software development has been driven by a curiosity to create efficient, scalable, and
-              user-centric applications that solve real-world problems.
+              I’m a results-driven React.js Developer with experience building modern web
+              applications and AI-powered dashboards. I enjoy transforming complex
+              requirements into intuitive, high-performance user interfaces.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              With hands-on experience in both frontend and full-stack development, I specialize in building responsive web applications using React.js, Node.js, and modern development practices. I'm always eager to learn new technologies and contribute to innovative projects, and I’m currently expanding my skill set by learning MuleSoft to enhance my expertise in integration and API connectivity.
+              Currently, I work on AI-based applications such as ANPR systems and
+              contribute to scalable frontend architectures and company websites.
+              I’m passionate about clean UI, performance optimization, and continuously
+              learning new technologies to grow as a developer.
             </p>
           </div>
 
@@ -56,8 +63,12 @@ const About = () => {
                     <highlight.icon className="text-white" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{highlight.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{highlight.description}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {highlight.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {highlight.description}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -68,5 +79,6 @@ const About = () => {
     </section>
   );
 };
+
 
 export default About;

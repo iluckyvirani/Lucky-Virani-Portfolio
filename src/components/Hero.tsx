@@ -11,6 +11,16 @@ const Hero = () => {
     }
   };
 
+  const downloadResume = () => {
+  const link = document.createElement('a');
+  link.href = '/Lucky-Virani-Resume.pdf';
+  link.download = 'Lucky-Virani-Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
       {/* Animated background elements */}
@@ -36,9 +46,8 @@ const Hero = () => {
                   React.js Developer
                 </h2>
               </div>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Passionate React.js Developer with hands-on experience in building scalable, responsive web applications. 
-                Adept at collaborating with cross-functional teams and translating complex designs into user-friendly interfaces.
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-justify">
+                Results-driven React.js Developer with experience building scalable, high-performance web applications and AI-driven dashboards. Skilled in developing modern UIs, integrating APIs, and collaborating with cross-functional teams to deliver user-centric solutions.
               </p>
             </div>
 
@@ -54,17 +63,14 @@ const Hero = () => {
                 <Mail size={20} />
                 <span>Get In Touch</span>
               </a>
-              <a
-                href="#projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                <Download size={20} />
-                <span>View Projects</span>
-              </a>
+              <button
+  onClick={downloadResume}
+  className="flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+>
+  <Download size={20} />
+  <span>Download Resume</span>
+</button>
+
             </div>
 
             <div className="flex justify-center lg:justify-start space-x-6 mb-12">

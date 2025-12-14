@@ -2,60 +2,75 @@ import React from 'react';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: 'React Developer',
-      company: 'Flyweis Technology',
-      location: 'Noida, India',
-      period: '12/2023 - Present',
-      type: 'Full-time',
-      achievements: [
-        'Developed 10+ responsive web applications using React.js and Redux, achieving a 30% improvement in load times',
-        'Created reusable React components to enhance application scalability',
-        'Integrated RESTful APIs with Axios and Fetch for efficient data fetching and updating React applications',
-        'Collaborated with UI/UX designers to translate complex designs into user-friendly interfaces'
-      ]
-    },
-    {
-      title: 'Full-stack Developer Intern',
-      company: 'Acculizein Tech Pvt. Ltd',
-      location: 'Agra, India (Remote)',
-      period: '10/2023 - 12/2023',
-      type: 'Internship',
-      achievements: [
-        'Developed and implemented scalable and performant web applications using JavaScript, React, Node.js, and related technologies',
-        'Optimized real-time chart updates using Socket.io, reducing latency significantly',
-        'Implemented RESTful APIs for seamless data exchange between front-end and back-end components',
-        'Built and maintained secure and efficient back-end infrastructure using Node.js, Express.js, and MongoDB'
-      ]
-    },
-    {
-      title: 'Frontend Web Developer',
-      company: 'i-Diary IT Solutions Private Limited',
-      location: 'Agra, Uttar Pradesh, India',
-      period: '07/2023 - 08/2023',
-      type: 'Internship',
-      achievements: [
-        'Developed responsive and interactive web pages using HTML, CSS, and JavaScript',
-        'Optimized UI components for better performance and user experience',
-        'Collaborated with senior developers to integrate frontend with backend APIs',
-        'Enhanced website accessibility and cross-browser compatibility'
-      ]
-    },
-    {
-      title: 'Open Source Contributor',
-      company: 'GirlScript Summer of Code',
-      location: 'Delhi, India (Remote)',
-      period: '05/2023 - 07/2023',
-      type: 'Part-time',
-      achievements: [
-        'Contributed to multiple open-source projects, implementing new features and fixing bugs',
-        'Collaborated with a distributed team through GitHub for version control and code reviews',
-        'Enhanced project documentation and onboarding guides for contributors',
-        'Participated in code reviews, improving overall code quality and maintainability'
-      ]
-    }
-  ];
+ const experiences = [
+  {
+    title: 'React.js Developer',
+    company: 'Synergy Telematics Pvt. Ltd.',
+    location: 'Noida, India',
+    period: '10/2025 - Present',
+    type: 'Full-time',
+    achievements: [
+      'Working on AI-based web applications including ANPR (Automatic Number Plate Recognition) systems using React.js',
+      'Developed real-time dashboards for vehicle detection, logs, analytics, and reporting',
+      'Integrated AI and backend APIs to display live detection data and camera-based insights',
+      'Contributed to the company’s official website, improving UI/UX, responsiveness, performance, and SEO',
+      'Implemented Google Analytics to track user behavior and traffic metrics'
+    ]
+  },
+  {
+    title: 'React Developer',
+    company: 'Flyweis Technology',
+    location: 'Noida, India',
+    period: '12/2023 - 10/2025',
+    type: 'Full-time',
+    achievements: [
+      'Developed 10+ responsive web applications using React.js and Redux, achieving a 30% improvement in load times',
+      'Created reusable React components to enhance application scalability',
+      'Integrated RESTful APIs with Axios and Fetch for efficient data fetching and updating React applications',
+      'Collaborated with UI/UX designers to translate complex designs into user-friendly interfaces'
+    ]
+  },
+  {
+    title: 'Full-stack Developer Intern',
+    company: 'Acculizein Tech Pvt. Ltd',
+    location: 'Agra, India (Remote)',
+    period: '10/2023 - 12/2023',
+    type: 'Internship',
+    achievements: [
+      'Developed and implemented scalable and performant web applications using JavaScript, React, Node.js, and related technologies',
+      'Optimized real-time chart updates using Socket.io, reducing latency significantly',
+      'Implemented RESTful APIs for seamless data exchange between front-end and back-end components',
+      'Built and maintained secure and efficient back-end infrastructure using Node.js, Express.js, and MongoDB'
+    ]
+  },
+  {
+    title: 'Frontend Web Developer',
+    company: 'i-Diary IT Solutions Private Limited',
+    location: 'Agra, Uttar Pradesh, India',
+    period: '07/2023 - 08/2023',
+    type: 'Internship',
+    achievements: [
+      'Developed responsive and interactive web pages using HTML, CSS, and JavaScript',
+      'Optimized UI components for better performance and user experience',
+      'Collaborated with senior developers to integrate frontend with backend APIs',
+      'Enhanced website accessibility and cross-browser compatibility'
+    ]
+  },
+  {
+    title: 'Open Source Contributor',
+    company: 'GirlScript Summer of Code',
+    location: 'Delhi, India (Remote)',
+    period: '05/2023 - 07/2023',
+    type: 'Part-time',
+    achievements: [
+      'Contributed to multiple open-source projects, implementing new features and fixing bugs',
+      'Collaborated with a distributed team through GitHub for version control and code reviews',
+      'Enhanced project documentation and onboarding guides for contributors',
+      'Participated in code reviews, improving overall code quality and maintainability'
+    ]
+  }
+];
+
 
 
 
@@ -82,7 +97,7 @@ const Experience = () => {
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{exp.title}</h3>
                       <div className="flex items-center space-x-2 text-blue-600 mb-2">
-                        <ExternalLink size={18} />
+                        {/* <ExternalLink size={18} /> */}
                         <span className="text-lg font-semibold">{exp.company}</span>
                       </div>
                     </div>
