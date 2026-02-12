@@ -12,13 +12,13 @@ const Hero = () => {
   };
 
   const downloadResume = () => {
-  const link = document.createElement('a');
-  link.href = '/Lucky-Virani-Resume.pdf';
-  link.download = 'Lucky-Virani-Resume.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+    const link = document.createElement('a');
+    link.href = '/Lucky-Virani-Resume.pdf';
+    link.download = 'Lucky-Virani-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 
   return (
@@ -64,12 +64,12 @@ const Hero = () => {
                 <span>Get In Touch</span>
               </a>
               <button
-  onClick={downloadResume}
-  className="flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
->
-  <Download size={20} />
-  <span>Download Resume</span>
-</button>
+                onClick={downloadResume}
+                className="flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                <Download size={20} />
+                <span>Download Resume</span>
+              </button>
 
             </div>
 
