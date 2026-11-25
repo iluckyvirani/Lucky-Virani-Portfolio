@@ -48,7 +48,7 @@ const Projects = () => {
   return (
     <section id="projects" className="bg-paper py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionTitle kicker="projects" title="Things I've built and shipped" sub="Every link below is a live product. Click a card's link to try it." />
+        <SectionTitle kicker="projects" title="Things I've built and shipped" sub="Most of these are live: click a link to try them. A few are private builds, marked as such." />
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           {featured.map((p, i) => (

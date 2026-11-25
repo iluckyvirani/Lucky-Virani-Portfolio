@@ -6,7 +6,7 @@ export const END_Z = -40;
 
 export const DOORS = [
   { id: 'about', label: 'About me', sub: "who I am", side: -1, z: -5 },
-  { id: 'projects', label: 'Projects', sub: '12 live products', side: 1, z: -12 },
+  { id: 'projects', label: 'Projects', sub: '14 products', side: 1, z: -12 },
   { id: 'experience', label: 'Experience', sub: "where I've worked", side: -1, z: -19 },
   { id: 'skills', label: 'Skills', sub: 'my toolbox', side: 1, z: -26 },
   { id: 'contact', label: 'Contact', sub: 'say hi!', side: -1, z: -33 },

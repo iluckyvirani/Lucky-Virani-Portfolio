@@ -16,7 +16,7 @@ export const profile = {
   stats: [
     { value: '3+', label: 'Years of experience' },
     { value: '10+', label: 'Live products' },
-    { value: '9', label: 'Custom domains shipped' },
+    { value: '14', label: 'Custom domains shipped' },
     { value: '1', label: 'Open-source AI agent' },
   ],
 };

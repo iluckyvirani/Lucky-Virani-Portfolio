@@ -30,7 +30,7 @@ const handleChange = (
       icon: Phone,
       label: 'Phone',
       value: '+91 6396345932',
-      link: 'tel:+916396948932'
+      link: 'tel:+916396345932'
     },
     {
       icon: MapPin,
@@ -82,7 +82,8 @@ const handleChange = (
                   <a
                     key={index}
                     href={info.link}
-                    target="_blank"
+                    target={info.link.startsWith('http') ? '_blank' : undefined}
+                    rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="flex items-center space-x-4 p-4 bg-[#fffdf7] rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 group"
                   >
                     <div className="bg-ink p-3 rounded-lg group-hover:scale-110 transition-transform duration-200">
