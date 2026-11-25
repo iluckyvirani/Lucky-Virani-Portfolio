@@ -9,16 +9,16 @@ let classifier: any = null;
 let qaModel: any = null;
 
 export const portfolioContext = `
-Lucky Virani is a Full Stack Developer (AI Integration & Automation) with 2+ years of professional experience. He builds full stack web apps and AI products: real-time computer-vision dashboards, LLM agents and automations.
+Lucky Virani is a Full Stack Developer (AI Integration & Automation) with 3+ years of professional experience. He builds full stack web apps and AI products: real-time computer-vision dashboards, LLM agents and automations.
 
 Skills:
 - Frontend: React.js, Next.js, TypeScript, Redux Toolkit, Zustand, Tailwind CSS, Three.js / React Three Fiber, GSAP
 - Backend: Node.js, Express.js, REST APIs, JWT auth, Socket.io, Stripe, Python
 - Data: PostgreSQL, Prisma ORM, MongoDB, MySQL, Firebase
 - AI: Claude API, OpenAI API, tool use / agents, structured outputs, workflow automation, computer-vision integration
-- Cloud & DevOps: Ubuntu VPS, Nginx, AWS Amplify, AWS S3, Vercel, cron jobs
+- Cloud & DevOps: Docker, CI/CD, Ubuntu VPS, Nginx, AWS Amplify, AWS S3, Vercel, cron jobs
 
-Current Role: React.js Developer at Synergy Telematics Pvt. Ltd. (since October 2025), building the web platform for an AI-based ANPR system.
+Current Role: Senior Frontend Developer at Synergy Telematics Pvt. Ltd. (since October 2025), building the web platform for an AI-based ANPR system.
 
 Previous Experience:
 - React Developer at Flyweis Technology (12/2023 - 10/2025)
@@ -29,11 +29,13 @@ Previous Experience:
 Projects:
 1. LeadPilot AI - open-source AI sales agent using Claude tool use, PostgreSQL CRM and human approvals (github.com/iluckyvirani/leadpilot-ai)
 2. AI-Based ANPR Platform - real-time number-plate recognition dashboard (Synergy Telematics)
-3. MYKEYS - London property + home-services platform (mykeysuk.com)
-4. Growra Homes - luxury real estate platform (growrahomes.com)
-5. Wa4Link - WhatsApp links, short URLs and QR code SaaS (wa4.link)
-6. Dhanviro - prop-firm trading challenge platform (dhanviro.com)
-7. Also: LMB Shoes (lmbone.com), Orai Development Authority portal (odaorai.com), RideBhai (ridebhai.com), Apex OTT, Mitansh Chemicals, Hospital Management System
+3. Cattle Counting System - AI computer vision (YOLOv8) that counts cattle; Lucky built the dashboard and the main detection engine (private)
+4. PriceWatch - price tracker for e-commerce and quick commerce with PIN code support and Telegram alerts on price drops, increases and new offers (private)
+5. MYKEYS - London property + home-services platform (mykeysuk.com)
+6. Growra Homes - luxury real estate platform (growrahomes.com)
+7. Wa4Link - WhatsApp links, short URLs and QR code SaaS (wa4.link)
+8. Dhanviro - prop-firm trading challenge platform (dhanviro.com)
+9. Also: LMB Shoes (lmbone.com), Orai Development Authority portal (odaorai.com), RideBhai (ridebhai.com), Apex OTT, Mitansh Chemicals, Hospital Management System
 
 Contact: luckyvirani555@gmail.com | Phone: 6396345932 | LinkedIn: linkedin.com/in/lucky-virani | GitHub: github.com/iluckyvirani
 `;
@@ -123,7 +125,7 @@ const generateFallbackResponse = (userInput: string): string => {
     input.includes('career') ||
     input.includes('worked')
   ) {
-    return `Lucky has 2+ years of professional experience building production web apps. He currently works at Synergy Telematics Pvt. Ltd. (since October 2025) building the web platform for an AI-based ANPR system. Previously, he worked at Flyweis Technology for 2 years and has contributed to open-source projects during GirlScript Summer of Code.`;
+    return `Lucky has 3+ years of professional experience building production web apps. He currently works at Synergy Telematics Pvt. Ltd. (since October 2025) building the web platform for an AI-based ANPR system. Previously, he worked at Flyweis Technology for 2 years and has contributed to open-source projects during GirlScript Summer of Code.`;
   }
 
   if (

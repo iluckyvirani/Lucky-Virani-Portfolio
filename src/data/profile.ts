@@ -14,7 +14,7 @@ export const profile = {
   summary:
     'I build full stack web apps that put AI to real use: real-time computer-vision dashboards, LLM agents and automations, and production platforms running on live domains.',
   stats: [
-    { value: '2+', label: 'Years in production' },
+    { value: '3+', label: 'Years of experience' },
     { value: '10+', label: 'Live products' },
     { value: '9', label: 'Custom domains shipped' },
     { value: '1', label: 'Open-source AI agent' },
@@ -52,10 +52,32 @@ export const projects: Project[] = [
     name: 'AI ANPR Platform',
     tagline: 'Real-time number-plate recognition',
     description:
-      'Production web platform for an AI-based Automatic Number Plate Recognition system: live camera feeds, real-time vehicle detection, plate logs, analytics and exportable reports, built to stay smooth with large, continuously updating datasets.',
+      'I built the entire frontend, end to end, for an AI-based Automatic Number Plate Recognition system: live camera feeds, real-time vehicle detection, plate logs, analytics and exportable reports, built to stay smooth with large, continuously updating datasets.',
     stack: ['React.js', 'MUI', 'REST APIs', 'Computer vision APIs', 'Real-time data', 'AWS'],
     note: 'Company project · Synergy Telematics (private)',
     color: '#22d3ee',
+    tier: 1,
+  },
+  {
+    id: 'cattle',
+    name: 'Cattle Counting System',
+    tagline: 'AI computer vision (YOLOv8)',
+    description:
+      'An AI system that counts cattle using YOLOv8 object detection. I built both the dashboard and the main detection and counting engine, with MongoDB storage and Docker containers.',
+    stack: ['YOLOv8', 'Computer vision', 'MongoDB', 'Docker', 'Dashboard'],
+    note: 'Private project',
+    color: '#f59e0b',
+    tier: 1,
+  },
+  {
+    id: 'pricewatch',
+    name: 'PriceWatch',
+    tagline: 'Price tracker + Telegram alerts',
+    description:
+      'Paste a product link and PriceWatch tracks its price for your PIN code, then sends Telegram alerts on price drops, price increases and new offers. It covers Flipkart, Amazon and quick commerce stores (Blinkit, Zepto, Instamart, BigBasket, JioMart, Meesho, Croma). Built end to end with queue-based scraping workers, a React dashboard, Android app builds and Docker.',
+    stack: ['Node.js', 'Express', 'TypeScript', 'Prisma', 'PostgreSQL', 'Redis', 'BullMQ', 'Playwright', 'React', 'Capacitor', 'Docker'],
+    note: 'Private project',
+    color: '#fb7185',
     tier: 1,
   },
   {
@@ -106,7 +128,7 @@ export const projects: Project[] = [
     id: 'lmbshoes',
     name: 'LMB Shoes',
     tagline: 'Luxury footwear e-commerce',
-    description: 'An online store with a storefront, admin dashboard and REST API, self-hosted on Ubuntu + Nginx.',
+    description: 'An online store built end to end: storefront, admin dashboard and REST API, self-hosted on Ubuntu + Nginx.',
     stack: ['Next.js', 'Zustand', 'Express', 'PostgreSQL', 'Cloudinary'],
     live: 'https://lmbone.com',
     color: '#e5e7eb',
@@ -117,7 +139,7 @@ export const projects: Project[] = [
     name: 'Orai Development Authority',
     tagline: 'Government of Uttar Pradesh portal',
     description:
-      'An official government portal covering building-map sanction, e-auctions, the Master Plan GIS and approved colonies. I built the full frontend solo.',
+      'An official government portal covering building-map sanction, e-auctions, the Master Plan GIS and approved colonies. I built the entire frontend end to end.',
     stack: ['React', 'Vite', 'Tailwind CSS'],
     live: 'https://odaorai.com',
     color: '#60a5fa',
@@ -167,6 +189,11 @@ export const projects: Project[] = [
 ];
 
 export const moreSites = [
+  { name: 'Synergy Telematics website', url: 'https://stmpl.in' },
+  { name: 'Shahina Hoja Aesthetics', url: 'https://www.shahinahoja.com' },
+  { name: 'Easy Advising', url: 'https://easyadvising.com' },
+  { name: 'IZA Beauty', url: 'https://izabeauty.in' },
+  { name: 'Digital Benchers', url: 'https://digitalbenchers.com' },
   { name: 'LMB Bar Market', url: 'https://lmb-website-tau.vercel.app' },
   { name: 'LMB Molecular Bar', url: 'https://luxury-molecular-bar.vercel.app' },
   { name: 'Pipwood Leather', url: 'https://pipwoodleather.com' },
@@ -177,7 +204,7 @@ export const moreSites = [
 
 export const experience = [
   {
-    role: 'React.js Developer',
+    role: 'Senior Frontend Developer',
     company: 'Synergy Telematics Pvt. Ltd.',
     period: '10/2025 – Present',
     place: 'Noida',
@@ -216,8 +243,8 @@ export const experience = [
 
 export const skills = [
   { group: 'Frontend', items: ['React.js', 'Next.js', 'TypeScript', 'Redux Toolkit', 'Zustand', 'Tailwind CSS', 'Three.js / R3F', 'GSAP'] },
-  { group: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'Socket.io', 'Stripe', 'Python'] },
+  { group: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'Redis', 'BullMQ queues', 'Web scraping (Playwright)', 'Telegram Bot API', 'Socket.io', 'Stripe', 'Python'] },
   { group: 'Data', items: ['PostgreSQL', 'Prisma ORM', 'MongoDB', 'MySQL', 'Firebase'] },
-  { group: 'AI & Automation', items: ['Claude API', 'OpenAI API', 'Tool use / agents', 'Structured outputs', 'Prompt engineering', 'Workflow automation', 'Computer-vision integration'] },
-  { group: 'Cloud & DevOps', items: ['Ubuntu VPS', 'Nginx', 'AWS Amplify', 'AWS S3', 'Vercel', 'Cron jobs', 'Git / GitHub'] },
+  { group: 'AI & Automation', items: ['YOLOv8 object detection', 'Computer vision', 'Claude API', 'OpenAI API', 'Tool use / agents', 'Structured outputs', 'Prompt engineering', 'Workflow automation', 'Computer-vision integration'] },
+  { group: 'Cloud & DevOps', items: ['Docker', 'CI/CD', 'Ubuntu VPS', 'Nginx', 'AWS Amplify', 'AWS S3', 'Vercel', 'Cron jobs', 'Git / GitHub'] },
 ];
