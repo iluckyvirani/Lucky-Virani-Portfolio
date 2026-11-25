@@ -85,7 +85,7 @@ export const projects: Project[] = [
     name: 'MYKEYS',
     tagline: 'London property + home-services platform',
     description:
-      'A live UK platform that combines buying, renting and short stays with a home-services marketplace in one dashboard. It has separate flows for tenants, landlords and service providers, map-based search, Stripe payments and email notifications.',
+      'A live UK platform that combines buying, renting and short stays with a home-services marketplace. It has 5 user roles, admin and agent dashboards, bookings, bids, Stripe payments, Google and magic-link sign-in, and 7 scheduled jobs: 49 database models and 197 API routes, built end to end.',
     stack: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'JWT', 'Google Maps', 'Cloudinary'],
     live: 'https://mykeysuk.com',
     color: '#34d399',
