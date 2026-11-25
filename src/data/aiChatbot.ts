@@ -9,29 +9,31 @@ let classifier: any = null;
 let qaModel: any = null;
 
 export const portfolioContext = `
-Lucky Virani is a React.js Developer with 2+ years of professional experience. He specialized in building scalable, high-performance web applications and AI-driven dashboards.
+Lucky Virani is a Full Stack Developer (AI Integration & Automation) with 2+ years of professional experience. He builds full stack web apps and AI products: real-time computer-vision dashboards, LLM agents and automations.
 
 Skills:
-- Frontend: React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, Redux
-- Backend: Node.js, Express.js, Rest APIs, MongoDB, JWT Authentication
-- Tools: Git, GitHub, VS Code, Postman, npm, yarn, Webpack, Vite
-- Cloud: AWS Amplify, AWS S3
+- Frontend: React.js, Next.js, TypeScript, Redux Toolkit, Zustand, Tailwind CSS, Three.js / React Three Fiber, GSAP
+- Backend: Node.js, Express.js, REST APIs, JWT auth, Socket.io, Stripe, Python
+- Data: PostgreSQL, Prisma ORM, MongoDB, MySQL, Firebase
+- AI: Claude API, OpenAI API, tool use / agents, structured outputs, workflow automation, computer-vision integration
+- Cloud & DevOps: Ubuntu VPS, Nginx, AWS Amplify, AWS S3, Vercel, cron jobs
 
-Current Role: React.js Developer at Synergy Telematics Pvt. Ltd. (since October 2025)
+Current Role: React.js Developer at Synergy Telematics Pvt. Ltd. (since October 2025), building the web platform for an AI-based ANPR system.
 
 Previous Experience:
 - React Developer at Flyweis Technology (12/2023 - 10/2025)
 - Full-stack Developer Intern at Acculizein Tech Pvt. Ltd (10/2023 - 12/2023)
-- Frontend Web Developer at i-Diary IT Solutions (07/2023 - 08/2023)
+- Frontend Web Developer Intern at i-Diary IT Solutions (07/2023 - 08/2023)
 - Open Source Contributor at GirlScript Summer of Code (05/2023 - 07/2023)
 
 Projects:
-1. AI-Based ANPR Web Application - Real-time vehicle detection dashboard with AI integration
-2. Synergy Telematics Company Website - Official company website with Google Analytics
-3. Shahina Hoja Aesthetics - Luxury clinic website with appointment booking and Stripe payment
-4. Latrice - Salon & Professional Service Platform with real-time booking
-5. Prokinesia - Healthcare-focused mobile application
-6. TripRider - Travel booking platform with real-time updates
+1. LeadPilot AI - open-source AI sales agent using Claude tool use, PostgreSQL CRM and human approvals (github.com/iluckyvirani/leadpilot-ai)
+2. AI-Based ANPR Platform - real-time number-plate recognition dashboard (Synergy Telematics)
+3. MYKEYS - London property + home-services platform (mykeysuk.com)
+4. Growra Homes - luxury real estate platform (growrahomes.com)
+5. Wa4Link - WhatsApp links, short URLs and QR code SaaS (wa4.link)
+6. Dhanviro - prop-firm trading challenge platform (dhanviro.com)
+7. Also: LMB Shoes (lmbone.com), Orai Development Authority portal (odaorai.com), RideBhai (ridebhai.com), Apex OTT, Mitansh Chemicals, Hospital Management System
 
 Contact: luckyvirani555@gmail.com | Phone: 6396345932 | LinkedIn: linkedin.com/in/lucky-virani | GitHub: github.com/iluckyvirani
 `;
@@ -103,7 +105,7 @@ const generateFallbackResponse = (userInput: string): string => {
     input.includes('technology') ||
     input.includes('know')
   ) {
-    return `Lucky is an expert in React.js and modern web technologies! His main skills include React.js, JavaScript, TypeScript, Tailwind CSS, Redux for state management, and backend technologies like Node.js and Express.js. He's also proficient with tools like Git, GitHub, and AWS services.`;
+    return `Lucky is a full stack developer: React.js, Next.js and TypeScript on the frontend; Node.js, Express, PostgreSQL and Prisma on the backend; and AI work with the Claude and OpenAI APIs (agents, tool use, automation). He deploys on Ubuntu VPS + Nginx, Vercel and AWS.`;
   }
 
   if (
@@ -112,7 +114,7 @@ const generateFallbackResponse = (userInput: string): string => {
     input.includes('work') ||
     input.includes('developed')
   ) {
-    return `Lucky has worked on impressive projects including an AI-based ANPR dashboard for real-time vehicle detection, multiple e-commerce and service platforms like Latrice salon marketplace, healthcare applications, and company websites. Each project showcases his expertise in React.js and modern web development.`;
+    return `Lucky's highlights: LeadPilot AI (an open-source AI sales agent on Claude tool use), an AI ANPR platform for real-time number-plate recognition, MYKEYS (London property platform), Growra Homes, Wa4Link and Dhanviro. All of them are live, and you can find them in the Projects section.`;
   }
 
   if (
@@ -121,7 +123,7 @@ const generateFallbackResponse = (userInput: string): string => {
     input.includes('career') ||
     input.includes('worked')
   ) {
-    return `Lucky has 2+ years of professional experience as a React Developer. He currently works at Synergy Telematics Pvt. Ltd. (since October 2025) building AI-driven dashboards. Previously, he worked at Flyweis Technology for 2 years and has contributed to open-source projects during GirlScript Summer of Code.`;
+    return `Lucky has 2+ years of professional experience building production web apps. He currently works at Synergy Telematics Pvt. Ltd. (since October 2025) building the web platform for an AI-based ANPR system. Previously, he worked at Flyweis Technology for 2 years and has contributed to open-source projects during GirlScript Summer of Code.`;
   }
 
   if (
@@ -140,7 +142,7 @@ const generateFallbackResponse = (userInput: string): string => {
   }
 
   if (input.includes('who')) {
-    return `I'm Lucky Virani, a React.js Developer with 2+ years of experience building scalable web applications and AI-driven dashboards. I'm passionate about clean code, performance optimization, and modern web technologies.`;
+    return `I'm Lucky Virani, a full stack developer who builds AI products: real-time computer-vision dashboards, LLM agents and automations, and production platforms on live domains.`;
   }
 
   if (input.includes('help') || input.includes('can you')) {

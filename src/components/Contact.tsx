@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle, Loader2  } fr
 import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
@@ -45,13 +45,13 @@ const handleChange = (
       icon: Github,
       label: 'GitHub',
       url: 'https://github.com/iluckyvirani',
-      color: 'hover:text-gray-900'
+      color: 'hover:text-ink'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       url: 'https://www.linkedin.com/in/lucky-virani/',
-      color: 'hover:text-blue-600'
+      color: 'hover:text-blue-ink'
     },
     {
       icon: Mail,
@@ -62,12 +62,12 @@ const handleChange = (
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="contact" className="py-20 paper-dots">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="font-hand text-6xl font-bold text-ink mb-4">Get In Touch</h2>
+          <div className="w-24 h-1 bg-ink mx-auto mb-6"></div>
+          <p className="text-lg text-ink/70 max-w-2xl mx-auto">
             Ready to collaborate on your next project? Let's discuss how we can bring your ideas to life.
           </p>
         </div>
@@ -76,21 +76,21 @@ const handleChange = (
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-ink mb-6">Contact Information</h3>
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.link}
                     target="_blank"
-                    className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 group"
+                    className="flex items-center space-x-4 p-4 bg-[#fffdf7] rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 group"
                   >
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-lg group-hover:scale-110 transition-transform duration-200">
+                    <div className="bg-ink p-3 rounded-lg group-hover:scale-110 transition-transform duration-200">
                       <info.icon className="text-white" size={20} />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 font-medium">{info.label}</p>
-                      <p className="text-gray-900 font-semibold">{info.value}</p>
+                      <p className="text-sm text-ink/60 font-medium">{info.label}</p>
+                      <p className="text-ink font-semibold">{info.value}</p>
                     </div>
                   </a>
                 ))}
@@ -98,7 +98,7 @@ const handleChange = (
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Follow Me</h3>
+              <h3 className="text-2xl font-bold text-ink mb-6">Follow Me</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -106,7 +106,7 @@ const handleChange = (
                     href={social.label === 'Email' ? 'mailto:luckyvirani555@gmail.com' : social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-gray-600 ${social.color} transform hover:scale-110`}
+                    className={`bg-[#fffdf7] p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-ink/70 ${social.color} transform hover:scale-110`}
                     title={social.label}
                   >
                     <social.icon size={24} />
@@ -115,35 +115,35 @@ const handleChange = (
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
+            <div className="bg-ink rounded-xl p-8 text-white">
               <h3 className="text-xl font-bold mb-4">Let's Work Together!</h3>
               <p className="mb-4">
                 I'm always interested in new opportunities and exciting projects.
-                Whether you need a React developer for your team or want to discuss a freelance project,
+                If you're hiring a full stack or AI developer for your team,
                 I'd love to hear from you.
               </p>
               <div className="flex items-center space-x-2">
                 <CheckCircle size={20} />
-                <span>Available for freelance work</span>
+                <span>Open to full-time Full Stack & AI roles</span>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Message</h3>
+          <div className="bg-[#fffdf7] sketch-box shadow-[4px_5px_0_#26231f] p-8">
+            <h3 className="text-2xl font-bold text-ink mb-6">Send Message</h3>
 
             {state.succeeded ? (
               <div className="text-center py-12">
                 <CheckCircle className="text-green-600 mx-auto mb-4" size={48} />
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h4>
-                <p className="text-gray-600">Thank you for reaching out. I'll get back to you soon.</p>
+                <h4 className="text-xl font-semibold text-ink mb-2">Message Sent!</h4>
+                <p className="text-ink/70">Thank you for reaching out. I'll get back to you soon.</p>
               </div>
             ) : (
               <form   onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-ink/80 mb-2">
                       Full Name
                     </label>
                     <input
@@ -153,7 +153,7 @@ const handleChange = (
                       // value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 bg-[#fffdf7] text-ink placeholder:text-ink/40 border-2 border-ink/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-marker focus:border-transparent transition-colors duration-200"
                       placeholder="Your name"
                     />
                      <ValidationError 
@@ -163,7 +163,7 @@ const handleChange = (
       />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-ink/80 mb-2">
                       Email Address
                     </label>
                     <input
@@ -173,7 +173,7 @@ const handleChange = (
                       // value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 bg-[#fffdf7] text-ink placeholder:text-ink/40 border-2 border-ink/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-marker focus:border-transparent transition-colors duration-200"
                       placeholder="your.email@example.com"
                     />
                      <ValidationError 
@@ -185,7 +185,7 @@ const handleChange = (
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-ink/80 mb-2">
                     Subject
                   </label>
                   <input
@@ -195,7 +195,7 @@ const handleChange = (
                     // value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-[#fffdf7] text-ink placeholder:text-ink/40 border-2 border-ink/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-marker focus:border-transparent transition-colors duration-200"
                     placeholder="What's this about?"
                   />
                                   <ValidationError prefix="subject" field="subject" errors={state.errors} />
@@ -203,7 +203,7 @@ const handleChange = (
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-ink/80 mb-2">
                     Message
                   </label>
                   <textarea
@@ -213,7 +213,7 @@ const handleChange = (
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-[#fffdf7] text-ink placeholder:text-ink/40 border-2 border-ink/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-marker focus:border-transparent transition-colors duration-200 resize-none"
                     placeholder="Tell me about your project..."
                   ></textarea>
                    <ValidationError 
@@ -226,7 +226,7 @@ const handleChange = (
               <button
   type="submit"
   disabled={state.submitting}
-  className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg
+  className={`w-full bg-ink text-white py-3 px-6 rounded-lg
     hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2
     transform hover:scale-105 ${
       state.submitting ? 'opacity-75 cursor-not-allowed' : ''

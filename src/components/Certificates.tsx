@@ -111,12 +111,12 @@ const Certificates = () => {
     };
 
     return (
-        <section id="certificates" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <section id="certificates" className="py-20 paper-dots">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Certifications</h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <h2 className="font-hand text-6xl font-bold text-ink mb-4">Certifications</h2>
+                    <div className="w-24 h-1 bg-ink mx-auto mb-6"></div>
+                    <p className="text-lg text-ink/70 max-w-2xl mx-auto">
                         Validations of my technical expertise and commitment to continuous learning.
                     </p>
                 </div>
@@ -125,37 +125,37 @@ const Certificates = () => {
                     {certificates.slice(0, visibleCertificates).map((certificate, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col h-full"
+                            className="bg-[#fffdf7] sketch-box shadow-[4px_5px_0_#26231f] hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col h-full"
                         >
                             <div className="p-8 flex flex-col flex-grow">
                                 <div className="flex items-start mb-4">
-                                    <div className="bg-blue-100 p-3 rounded-full mr-4">
-                                        <BadgeCheck className="text-blue-600" size={24} />
+                                    <div className="bg-marker/40 p-3 rounded-full mr-4">
+                                        <BadgeCheck className="text-blue-ink" size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                        <h3 className="text-2xl font-bold text-ink group-hover:text-blue-ink transition-colors duration-200">
                                             {certificate.title}
                                         </h3>
-                                        <p className="text-gray-600">
+                                        <p className="text-ink/70">
                                             {certificate.issuer} • {certificate.date}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="flex-grow mb-6">
-                                    <p className="text-gray-600 mb-4 leading-relaxed">
+                                    <p className="text-ink/70 mb-4 leading-relaxed">
                                         {certificate.description}
                                     </p>
 
                                     <div className="mb-4">
-                                        <h4 className="text-sm font-semibold text-gray-900 mb-2">
+                                        <h4 className="text-sm font-semibold text-ink mb-2">
                                             Skills Covered:
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
                                             {certificate.skills.map((skill, skillIndex) => (
                                                 <span
                                                     key={skillIndex}
-                                                    className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                                                    className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-ink px-3 py-1 rounded-full text-sm font-medium"
                                                 >
                                                     {skill}
                                                 </span>
@@ -164,7 +164,7 @@ const Certificates = () => {
                                     </div>
 
                                     {certificate.verification && (
-                                        <div className="mt-2 text-sm text-gray-500">
+                                        <div className="mt-2 text-sm text-ink/60">
                                             <span className="font-medium">Verification:</span> {certificate.verification}
                                         </div>
                                     )}
@@ -175,7 +175,7 @@ const Certificates = () => {
                                         href={certificate.credentialUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg hover:shadow-lg transition-all duration-200 w-full transform hover:scale-[1.02]"
+                                        className="flex items-center justify-center space-x-2 bg-ink text-white px-4 py-3 rounded-lg hover:shadow-lg transition-all duration-200 w-full transform hover:scale-[1.02]"
                                     >
                                         <span>{certificate.view  ? "View Certificate" : "Verify Credential"}</span>
                                     </a>
@@ -189,7 +189,7 @@ const Certificates = () => {
                     <div className="text-center mt-10">
                         <button
                             onClick={loadMoreCertificates}
-                            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-sm hover:shadow-md"
+                            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-ink hover:bg-blue-ink transition-all duration-200 shadow-sm hover:shadow-md"
                         >
                             View More Certificates
                             <ChevronDown className="ml-2 h-5 w-5" />

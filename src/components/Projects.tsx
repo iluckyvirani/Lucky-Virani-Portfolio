@@ -1,208 +1,78 @@
-import { ExternalLink, Code } from 'lucide-react';
-import LiveCodingDemo from './LiveCodingDemo';
+import { ExternalLink, Github, Lock } from 'lucide-react';
+import { projects, moreSites, type Project } from '../data/profile';
+import SectionTitle from './SectionTitle';
 
-import img from '../assests/shahina.png'
-import img1 from '../assests/triprider.webp'
-import img3 from '../assests/latrice.png'
-import img4 from '../assests/Prokinesia.png'
-import img5 from '../assests/anpr.png'
-import img6 from '../assests/Synergy-logo.png'
+function Card({ p, big, i }: { p: Project; big?: boolean; i: number }) {
+  return (
+    <article
+      id={`project-${p.id}`}
+      className={`sketch-box group relative flex flex-col bg-[#fffdf7] p-6 shadow-[4px_5px_0_#26231f] transition-all duration-200 hover:-translate-y-1 hover:shadow-[6px_8px_0_#26231f] ${big ? 'md:p-8' : ''}`}
+      style={{ transform: `rotate(${(i % 3) - 1 === 0 ? 0 : ((i % 3) - 1) * 0.6}deg)` }}
+    >
+      <span className="absolute -top-3 left-6 rounded-full border-2 border-ink px-3 py-0.5 text-xs font-semibold text-ink" style={{ background: p.color }}>
+        {p.tagline}
+      </span>
+      <h3 className={`mt-3 font-hand font-bold text-ink ${big ? 'text-4xl' : 'text-3xl'}`}>{p.name}</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/75">{p.description}</p>
+      <div className="mt-5 flex flex-wrap gap-2">
+        {p.stack.map((s) => (
+          <span key={s} className="rounded-md border border-ink/25 bg-paper px-2 py-0.5 text-xs text-ink/80">
+            {s}
+          </span>
+        ))}
+      </div>
+      <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
+        {p.live && (
+          <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-blue-ink underline decoration-2 underline-offset-4 hover:decoration-marker">
+            <ExternalLink size={15} /> {new URL(p.live).host}
+          </a>
+        )}
+        {p.repo && (
+          <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-ink hover:text-blue-ink">
+            <Github size={15} /> Code
+          </a>
+        )}
+        {p.note && (
+          <span className="inline-flex items-center gap-1.5 text-ink/55">
+            <Lock size={14} /> {p.note}
+          </span>
+        )}
+      </div>
+    </article>
+  );
+}
 
 const Projects = () => {
-const projects = [
-  {
-    title: 'AI-Based ANPR Web Application',
-    description:
-      'Developed a React.js-based dashboard for an AI-powered Automatic Number Plate Recognition (ANPR) system used for real-time vehicle detection, monitoring, and analytics.',
-    technologies: ['React.js', 'REST APIs', 'MUI', 'AI/ML Backend'],
-    features: [
-      'Real-time vehicle and number plate detection logs',
-      'Live analytics and reporting dashboard',
-      'Integration with AI backend APIs',
-      'Optimized UI for large datasets and real-time updates',
-      'Responsive dashboard for monitoring on multiple devices'
-    ],
-    demoUrl: '',
-    githubUrl: '#',
-    image: img5,
-    category: 'AI Application'
-  },
-  {
-    title: 'Company Website – Synergy Telematics Pvt. Ltd.',
-    description:
-      'Designed and enhanced the official company website with a focus on performance, responsiveness, and SEO best practices.',
-    technologies: ['React.js', 'Tailwind CSS', 'Google Analytics'],
-    features: [
-      'Modern and responsive UI/UX',
-      'Reusable and scalable React components',
-      'Google Analytics integration for traffic and user behavior tracking',
-      'SEO-friendly structure and cross-browser compatibility',
-      'Performance optimization for faster page loads'
-    ],
-    demoUrl: 'https://stmpl.in/',
-    githubUrl: '#',
-    image: img6,
-    category: 'Web Development'
-  },
-  {
-    title: 'Shahina Hoja Aesthetics, Skincare & Aesthetic Clinic Website',
-    description:
-      'Designed and developed a modern, high-performance website for a luxury aesthetics clinic specializing in non-surgical treatments.',
-    technologies: ['React.js', 'Tailwind CSS', 'Stripe API'],
-    features: [
-      'Online appointment booking system',
-      'Secure product checkout with Stripe integration',
-      'Responsive design for all devices',
-      'SEO optimization with code splitting and lazy loading'
-    ],
-    demoUrl: 'https://www.shahinahoja.com/',
-    githubUrl: '#',
-    image: img,
-    category: 'Web Development'
-  },
-  {
-    title: 'Latrice - Salon & Professional Service Platform',
-    description:
-      'Built a full-service marketplace connecting beauty professionals with clients through real-time booking and communication tools.',
-    technologies: ['React.js', 'Tailwind CSS'],
-    features: [
-      'Separate dashboards for clients and professionals',
-      'Business and independent professional account types',
-      'Appointment booking and scheduling system',
-      'Real-time notifications and chat functionality',
-      'Fully responsive and user-friendly interface'
-    ],
-    demoUrl: 'https://latrice.vercel.app/',
-    githubUrl: '#',
-    image: img3,
-    category: 'Web Development'
-  },
-  {
-    title: 'Prokinesia Healthcare Clinic Website',
-    description:
-      'Built a responsive SPA for a physiotherapy and wellness clinic featuring 60+ services and an intuitive booking system.',
-    technologies: ['React.js', 'Tailwind CSS'],
-    features: [
-      'Doctor profile and clinic information pages',
-      'Comprehensive service listings',
-      'User-friendly appointment booking interface',
-      'Accessible and responsive design'
-    ],
-    demoUrl: 'https://prokinesia.com/',
-    githubUrl: '#',
-    image: img4,
-    category: 'Web Development'
-  },
-  {
-    title: 'Admin Dashboard for TripRider App',
-    description:
-      'Developed an admin dashboard to manage users, bookings, and real-time operations for the TripRider application.',
-    technologies: ['React.js', 'Firebase', 'Google Maps API'],
-    features: [
-      'User management and booking tracking',
-      'Real-time chat using Firebase',
-      'Live booking location tracking with Google Maps',
-      'Optimized UI/UX for admin productivity'
-    ],
-    demoUrl:
-      'https://play.google.com/store/apps/details?id=com.rajiv.tripriderdriver&pcampaignid=web_share',
-    githubUrl: '#',
-    image: img1,
-    category: 'Dashboard'
-  }
-];
-
-
+  const featured = projects.filter((p) => p.tier === 1);
+  const more = projects.filter((p) => p.tier === 2);
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A showcase of my recent work demonstrating technical skills, creativity, and problem-solving abilities.
-          </p>
-        </div>
+    <section id="projects" className="bg-paper py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionTitle kicker="projects" title="Things I've built and shipped" sub="Every link below is a live product. Click a card's link to try it." />
 
-        {/* Live Coding Demo */}
-        <div className="mb-16 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Live Coding Demo</h3>
-          <LiveCodingDemo />
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col h-full"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-fill group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex-grow">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-                      <Code size={16} className="mr-2" />
-                      Key Features:
-                    </h4>
-                    <ul className="grid grid-cols-1 gap-1">
-                      {project.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-4">
-       <a
-  href={project.demoUrl || '#'}
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg w-full transition-all duration-200
-    ${
-      project.demoUrl && project.demoUrl !== '#'
-        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg transform hover:scale-[1.02]'
-        : 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
-    }`}
->
-  <ExternalLink size={16} />
-  <span>Live Demo</span>
-</a>
-
-
-                </div>
-              </div>
-            </div>
+        <div className="mt-14 grid gap-8 md:grid-cols-2">
+          {featured.map((p, i) => (
+            <Card key={p.id} p={p} big i={i} />
           ))}
+        </div>
+
+        <h3 className="mt-20 font-hand text-4xl font-bold text-ink">More live products</h3>
+        <div className="mt-8 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          {more.map((p, i) => (
+            <Card key={p.id} p={p} i={i + 1} />
+          ))}
+        </div>
+
+        <div className="mt-12 flex flex-wrap items-center gap-3 text-sm">
+          <span className="font-hand text-2xl text-ink/70">also built:</span>
+          {moreSites.map((s) => (
+            <a key={s.url} href={s.url} target="_blank" rel="noreferrer" className="sketch-btn px-3 py-1 text-ink">
+              {s.name}
+            </a>
+          ))}
+          <a href="https://github.com/iluckyvirani" target="_blank" rel="noreferrer" className="ml-auto inline-flex items-center gap-1.5 font-semibold text-blue-ink underline underline-offset-4">
+            <Github size={15} /> All code on GitHub
+          </a>
         </div>
       </div>
     </section>

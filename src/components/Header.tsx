@@ -1,86 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Briefcase, Code, FolderOpen, GraduationCap, Mail, Award,  } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+const navItems = [
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact', label: 'Contact' },
+];
+
+/** onNav: when given (3D tour), nav items open rooms instead of scrolling the page. */
+const Header = ({ onNav, onHome }: { onNav?: (id: string) => void; onHome?: () => void } = {}) => {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navItems = [
-    { href: '#home', label: 'Home', icon: Home },
-    { href: '#about', label: 'About', icon: User },
-    { href: '#experience', label: 'Experience', icon: Briefcase },
-    { href: '#skills', label: 'Skills', icon: Code },
-    { href: '#certificates', label: 'Certificates', icon: Award },
-    { href: '#projects', label: 'Projects', icon: FolderOpen },
-    { href: '#education', label: 'Education', icon: GraduationCap },
-    { href: '#contact', label: 'Contact', icon: Mail },
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  const go = (href: string) => {
+    setOpen(false);
+    if (onNav) return onNav(href.slice(1));
+    const el = document.querySelector(href);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+    setOpen(false);
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Lucky Virani
-          </div>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled || onNav ? 'border-b-2 border-ink/10 bg-paper/90 backdrop-blur' : 'bg-transparent'}`}>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <button onClick={() => (onHome ? onHome() : window.scrollTo({ top: 0, behavior: 'smooth' }))} className="flex items-center gap-2 text-ink">
+          <span className="sketch-btn grid h-10 w-10 place-items-center font-hand text-2xl font-bold">LV</span>
+          <span className="hidden font-hand text-3xl font-bold sm:inline">Lucky Virani</span>
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                <item.icon size={18} />
-                <span>{item.label}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        <div className="hidden items-center gap-6 md:flex">
+          {navItems.map((n) => (
+            <button key={n.href} onClick={() => go(n.href)} className="font-hand text-2xl text-ink/80 transition-colors hover:text-blue-ink">
+              {n.label}
+            </button>
+          ))}
+          <a href="/Lucky-Virani-Resume.pdf" download className="sketch-btn px-4 py-1.5 text-sm font-semibold text-ink">
+            Resume
+          </a>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="flex items-center space-x-3 w-full px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
-              >
-                <item.icon size={18} />
-                <span>{item.label}</span>
-              </button>
-            ))}
-          </div>
-        )}
+        <button className="sketch-btn p-2 text-ink md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
+
+      {open && (
+        <div className="sketch-box mx-4 mb-4 bg-[#fffdf7] p-2 md:hidden">
+          {navItems.map((n) => (
+            <button key={n.href} onClick={() => go(n.href)} className="block w-full rounded-lg px-4 py-2 text-left font-hand text-2xl text-ink hover:bg-marker/40">
+              {n.label}
+            </button>
+          ))}
+        </div>
+      )}
     </header>
   );
 };

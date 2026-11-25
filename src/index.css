@@ -23,16 +23,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f7f3ea;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  background: linear-gradient(to bottom, #26231f, #26231f);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  background: linear-gradient(to bottom, #2f5bd3, #2f5bd3);
 }
 
 /* Smooth scrolling */
@@ -55,3 +55,51 @@ html {
 .syntax-string { color: #f1fa8c; }
 .syntax-function { color: #50fa7b; }
 .syntax-comment { color: #6272a4; }
+
+html { color-scheme: light; }
+body { background: #f7f3ea; }
+body { color: #26231f; font-family: Inter, system-ui, sans-serif; }
+
+/* hand-drawn borders (uneven radii trick) */
+.sketch-card {
+  border: 2.5px solid #26231f;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+.sketch-box {
+  border: 2px solid #26231f;
+  border-radius: 12px 4px 14px 5px / 5px 14px 4px 12px;
+}
+.sketch-btn {
+  border: 2px solid #26231f;
+  border-radius: 999px 60px 999px 70px / 70px 999px 60px 999px;
+  background: #fffdf7;
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: 2px 3px 0 #26231f;
+}
+.sketch-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 4px 0 #26231f; }
+
+/* highlighter */
+.marker {
+  background: linear-gradient(104deg, transparent 0.9%, #ffe066 2.4%, #ffe066 95%, transparent 98%);
+  background-size: 100% 40%;
+  background-repeat: no-repeat;
+  background-position: 0 85%;
+  padding: 0 .15em;
+}
+
+/* dotted paper background for sections */
+.paper-dots {
+  background-color: #f7f3ea;
+  background-image: radial-gradient(#d9d2c3 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.tape::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 90px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255, 224, 102, .75);
+}

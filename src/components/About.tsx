@@ -1,84 +1,54 @@
-import React from 'react';
-import { Code, Users, Lightbulb, Target } from 'lucide-react';
+import { Bot, Cpu, Server, Rocket } from 'lucide-react';
+import { profile } from '../data/profile';
+import SectionTitle from './SectionTitle';
 
-const About = () => {
-  const highlights = [
-    {
-      icon: Code,
-      title: 'React.js Expertise',
-      description:
-        'Strong experience building scalable and high-performance React.js applications with clean, maintainable code.'
-    },
-    {
-      icon: Lightbulb,
-      title: 'AI & Dashboard Development',
-      description:
-        'Hands-on experience developing AI-driven dashboards, including ANPR systems with real-time data visualization.'
-    },
-    {
-      icon: Users,
-      title: 'Cross-Team Collaboration',
-      description:
-        'Worked closely with backend, AI, and UI/UX teams to deliver seamless and user-focused digital solutions.'
-    },
-    {
-      icon: Target,
-      title: 'Impact-Oriented',
-      description:
-        'Focused on performance optimization, usability, and delivering solutions that create real business value.'
-    }
-  ];
+const pillars = [
+  { icon: Cpu, title: 'AI products', text: 'LLM agents with tool use and structured outputs, plus computer-vision dashboards (ANPR) in production.', bg: '#d9f2ff' },
+  { icon: Server, title: 'Full stack', text: 'Next.js and React frontends on Node/Express APIs with PostgreSQL and Prisma, including auth, payments and admin panels.', bg: '#fff4b8' },
+  { icon: Rocket, title: 'Shipping', text: 'Live on real domains: Ubuntu VPS with Nginx, Vercel and AWS, with cron jobs and monitoring.', bg: '#e3f8de' },
+  { icon: Bot, title: 'Automation', text: 'Lead-generation and outreach pipelines, scheduled follow-ups and reports that save hours every week.', bg: '#ffe1ec' },
+];
 
-  return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              I’m a results-driven React.js Developer with experience building modern web
-              applications and AI-powered dashboards. I enjoy transforming complex
-              requirements into intuitive, high-performance user interfaces.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Currently, I work on AI-based applications such as ANPR systems and
-              contribute to scalable frontend architectures and company websites.
-              I’m passionate about clean UI, performance optimization, and continuously
-              learning new technologies to grow as a developer.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {highlights.map((highlight, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-lg">
-                    <highlight.icon className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {highlight.description}
-                    </p>
-                  </div>
-                </div>
+const About = () => (
+  <section id="about" className="paper-dots py-24">
+    <div className="mx-auto max-w-7xl px-6">
+      <SectionTitle kicker="about me" title="Frontend roots, full stack reach, AI in production." />
+      <div className="mt-10 grid gap-12 lg:grid-cols-2">
+        <div>
+          <p className="leading-relaxed text-ink/80">
+            I'm a full stack developer in {profile.location}. At <b>Synergy Telematics</b> I build the web platform for an AI-based
+            number-plate recognition system: live camera feeds, real-time detections and analytics that handle large, constantly
+            updating data.
+          </p>
+          <p className="mt-4 leading-relaxed text-ink/80">
+            Beyond that I've built and shipped <b>more than ten products</b> end to end, from a London property platform to a
+            trading-challenge platform and a government portal, plus an open-source AI sales agent that runs on Claude tool use.
+          </p>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {profile.stats.map((s, i) => (
+              <div key={s.label} className="sketch-box bg-[#fffdf7] p-4 shadow-[3px_4px_0_#26231f]" style={{ transform: `rotate(${i % 2 ? 1 : -1}deg)` }}>
+                <p className="font-hand text-4xl font-bold text-blue-ink">{s.value}</p>
+                <p className="mt-1 text-xs text-ink/70">{s.label}</p>
               </div>
             ))}
           </div>
         </div>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {pillars.map(({ icon: Icon, title, text, bg }, i) => (
+            <div
+              key={title}
+              className="tape relative p-6 shadow-[4px_6px_0_rgba(38,35,31,0.18)] transition-transform hover:-rotate-1 hover:scale-[1.02]"
+              style={{ background: bg, transform: `rotate(${[-1.5, 1, 1.2, -0.8][i]}deg)` }}
+            >
+              <Icon className="text-ink" size={22} />
+              <h3 className="mt-3 font-hand text-3xl font-bold text-ink">{title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-ink/80">{text}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
-  );
-};
-
+    </div>
+  </section>
+);
 
 export default About;
